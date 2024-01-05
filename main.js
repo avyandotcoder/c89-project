@@ -37,7 +37,7 @@ function my_mousemove(e) {
             current_position_of_touch_x = e.touches[0].clientX - canvas.offsetLeft;
             current_position_of_touch_y = e.touches[0].clientY - canvas.offsetTop;
         }
-        ctx.stroke();
+
     }
 
     last_position_of_x = current_position_of_mouse_x;
@@ -93,14 +93,10 @@ function my_touchmove(e) {
     ctx.beginPath();
     ctx.strokeStyle = color;
     ctx.lineWidth = width_of_line;
-    function moveTo() {
-        last_position_of_x = current_position_of_touch_x;
-        last_position_of_y = current_position_of_touch_y;
+    ctx.moveTo(last_position_of_x, last_position_of_y); {
     }
 
-    function lineTo() {
-        current_position_of_touch_x = e.touches[0].clientX - canvas.offsetLeft;
-        current_position_of_touch_y = e.touches[0].clientY - canvas.offsetTop;
+    ctx.lineTo(current_position_of_touch_x, current_position_of_touch_y); {
     }
     ctx.stroke();
 
@@ -111,5 +107,5 @@ function my_touchmove(e) {
 
 //Additional Activity
 function clearArea() {
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
 }
